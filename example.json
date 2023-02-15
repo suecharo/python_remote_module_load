@@ -1,0 +1,10 @@
+{
+  "@graph": [
+    {
+      "@id": "https://example.com/path/to/id",
+      "@context": "https://raw.githubusercontent.com/suecharo/python_remote_module_load/main/context.jsonld",
+      "@type": "Module",
+      "msg": "Hello World!"
+    }
+  ]
+}

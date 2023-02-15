@@ -1,0 +1,20 @@
+{
+  "@id": "https://example.com/path/to/context.jsonld",
+  "name": [
+    "Example context"
+  ],
+  "version": "1.0",
+  "url": {
+    "@id": "https://example.com/path/to/context.jsonld"
+  },
+  "schemaVersion": {
+    "@id": "https://example.com/path/to/schema"
+  },
+  "isBasedOn": [],
+  "license": {
+    "@id": "https://example.com/path/to/license"
+  },
+  "@context": {
+    "Model": "https://github.com/suecharo/python_remote_module_load/blob/main/module.yml#Model"
+  }
+}
