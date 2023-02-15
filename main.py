@@ -36,10 +36,11 @@ def main() -> None:
     module_path = module_dir.joinpath("module.py")
     with module_path.open("w") as f:
         f.write(module)
-    from remote_module.module import Module
-
-    # eval("from remote_module.module import Model")
-    print(Module)
+    module_globals = {}  # type: ignore
+    module_locals = {}  # type: ignore
+    exec("from remote_module.module import Module", module_globals, module_locals)
+    module_ins = module_locals["Module"](msg=entity["msg"])
+    module_ins.print_msg()
 
 
 if __name__ == "__main__":
