@@ -21,10 +21,25 @@ def main() -> None:
 
     # type_loc to module_loc
     module_loc = entity_type_location.split("#")[0].replace(".yml", ".py")
-    print(module_loc)
     with urllib.request.urlopen(module_loc) as f:
         module = f.read().decode("utf-8")
-    # print(module)
+
+    # このパターンは失敗する
+    # module_globals = {}  # type: ignore
+    # module_locals = {}  # type: ignore
+    # exec(module, module_globals, module_locals)
+    # print(module_globals)
+    # print(module_locals)
+
+    module_dir = Path(__file__).parent.joinpath("remote_module")
+    module_dir.mkdir(exist_ok=True)
+    module_path = module_dir.joinpath("module.py")
+    with module_path.open("w") as f:
+        f.write(module)
+    from remote_module.module import Module
+
+    # eval("from remote_module.module import Model")
+    print(Module)
 
 
 if __name__ == "__main__":
